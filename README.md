@@ -1,24 +1,3 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is my README for the FreeDoc DB app on rails for today's THP PROJECT, there will be a seed.db to test the db is working correctly it should have 3 models appointments doctors and patients. This runs on ruby 3.0.0 dont forget bundle install, no other specific requirements ? run rails console (--sandbox to not save your modifications) and $ Rails.application.load_seed . use tp anytable.all to visualize the newly generated table.
