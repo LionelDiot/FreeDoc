@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_09_040233) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_041806) do
   create_table "appointments", force: :cascade do |t|
     t.datetime "date"
     t.integer "doctor_id"
@@ -39,6 +39,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_040233) do
     t.index ["city_id"], name: "index_doctors_on_city_id"
   end
 
+  create_table "join_table_specialty_doctors", force: :cascade do |t|
+    t.integer "specialty_id", null: false
+    t.integer "doctor_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_join_table_specialty_doctors_on_doctor_id"
+    t.index ["specialty_id"], name: "index_join_table_specialty_doctors_on_specialty_id"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -48,7 +57,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_040233) do
     t.index ["city_id"], name: "index_patients_on_city_id"
   end
 
+  create_table "specialties", force: :cascade do |t|
+    t.string "field"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "appointments", "cities"
   add_foreign_key "doctors", "cities"
+  add_foreign_key "join_table_specialty_doctors", "doctors"
+  add_foreign_key "join_table_specialty_doctors", "specialties"
   add_foreign_key "patients", "cities"
 end

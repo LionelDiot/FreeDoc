@@ -20,11 +20,10 @@ end
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     city: City.all.sample)
-=begin
   specialty = Specialty.create!(
     field: Faker::Job.field,
   )
-=end
+
 end
 
 100.times do
@@ -33,11 +32,10 @@ appointment = Appointment.create!(
   doctor: Doctor.all.sample,
   patient: Patient.all.sample,
   city: City.all.sample)
-=begin
 specialty_doctor = JoinTableSpecialtyDoctor.create!(
   doctor: Doctor.all.sample,
   specialty: Specialty.all.sample
 )
-=end
+
 end
 
